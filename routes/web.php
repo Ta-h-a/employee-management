@@ -21,7 +21,10 @@ Route::get(
     [HomeController::class,'index']
 )->name('home.index');
 
+Route::get("employee/deleted", [EmployeeController::class, 'indexDeleted'])->name('employee.deletedItems');
+
+Route::get("employee/{employee}/update-department", [EmployeeController::class, 'indexUpdateDepartment'])->name('employee.indexUpdateDepartment');
+
+Route::put('employee/{employee}/update-department',[EmployeeController::class,'updateDepartment'])->name('employee.updateDepartment');
+
 Route::resource("employee",EmployeeController::class);
-
-
-

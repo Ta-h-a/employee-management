@@ -38,7 +38,7 @@ class EmployeeFormRequest extends FormRequest
             'phone_no' => strip_tags($this->phone_no),
             'email' => strip_tags($this->email),
             'department' => strip_tags($this->department),
-            'salary' => strip_tags($this->salary)
+            'salary' => strip_tags($this->salary),
         ]);
     }
 }

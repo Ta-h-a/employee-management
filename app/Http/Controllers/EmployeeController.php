@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeFormRequest;
+use App\Http\Requests\EmployeeUpdateDepartmentRequest;
 use App\Models\Employee;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class EmployeeController extends Controller
 
         return view('employee.index',[
             // 'employees' => Employee::all()
-            'employees' => Employee::all()
+            'employees' => Employee::all()->where('isActive','=',true)
         ]);
 
     }
@@ -50,8 +51,8 @@ class EmployeeController extends Controller
     {
         // POST
         $data = $request->validated();
-
-        info($data);
+        $data['isActive'] = true;
+        // info($data);
 
         Employee::create($data);
 
@@ -73,9 +74,12 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EmployeeFormRequest $employee)
+    public function edit(Employee $employee)
     {
-        //
+        // GET
+        return view('employee.edit',[
+            'employee' => $employee
+        ]);
     }
 
     /**
@@ -83,14 +87,50 @@ class EmployeeController extends Controller
      */
     public function update(EmployeeFormRequest $request, Employee $employee)
     {
-        //
+        $data = $request->validated();
+
+        $employee->update($data);
+
+        return redirect()->route("employee.show", $employee->id);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EmployeeFormRequest $employee)
+    public function destroy(Employee $employee)
     {
-        //
+        $employee->isActive = false;
+        $employee->save();
+        return redirect()->route("employee.index");
+    }
+
+    // List all the deleted items
+    public function indexDeleted(){
+        // error_log("It passes here");
+        return view(
+            'employee.deleted',
+            [
+                'employees'=> Employee::all()->where('isActive','=',false)
+            ]
+            );
+    }
+
+    // Show page for updating department
+    public function indexUpdateDepartment(Employee $employee){
+        return view(
+            'employee.editDepartment',
+            [
+                'employee' => $employee
+            ]
+        );
+    }
+
+    // Update Department
+    public function updateDepartment(EmployeeUpdateDepartmentRequest $employeeUpdateDepartmentRequest,Employee $employee){
+        $data = $employeeUpdateDepartmentRequest->validated();
+        $employee->department = $data['department'];
+        $employee->save();
+        return redirect()->route("employee.show",$employee['id']);
     }
 }

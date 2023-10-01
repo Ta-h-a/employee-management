@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('employees', function (Blueprint $table) {
-            $table->renameColumn('uuid','id');
+            $table->boolean('isActive')->default(true);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('id_column_name', function (Blueprint $table) {
-            $table->renameColumn('uuid','uuid');
+        Schema::table('employees', function (Blueprint $table) {
+            $table->dropColumn('isActive');
         });
     }
 };
