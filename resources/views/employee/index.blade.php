@@ -1,38 +1,16 @@
 @extends('layout')
-@section("navbar")
-<div class="navbar bg-base-100 morph" data-theme="forest">
-    <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl" href="{{ route("home.index") }}">Alpha Team</a>
-    </div>
-    <div class="flex-none">
-      <ul class="menu menu-horizontal px-1">
-        {{-- <li><a>Link</a></li> --}}
-        <li>
-          <details>
-            <summary>
-              Actions
-            </summary>
-            <ul class="p-2 bg-base-100" style="right: 0.1vw;" data-theme="halloween" >
-              <li><a href="{{ route("employee.create") }}">Add</a></li>
-              <li><a href="">Removed</a></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </div>
-  </div>
-@endsection
+@extends('employee.navbar')
 @section('content')
 <div>
-    <div class="container mx-auto place-content-center">
-        <h1 class="text-center text-5xl my-10 font-bold tracking-wide">
-            Employees
+    <div class="container mx-auto place-content-center mb-10">
+        <h1 class="text-center text-5xl my-20 font-bold tracking-wide">
+            Working Employees
         </h1>
     </div>
     <div>
-        @if (count($employees) > 0)
-           <div class="container mx-auto py-2" style="height: 65vh">
+        <div class="container mx-auto py-2 mb-10" style="height: 65vh">
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 px-4">
+            @if (count($employees) > 0)
                 @foreach ($employees as $employee)
                 <div class="grow card bg-primary text-primary-content card-normal card-box" data-theme="forest">
                     <div class="card-body">
@@ -54,12 +32,11 @@
 
                 </div>
             @endforeach
-            </div>
-           </div>
-        @else
-                    No employees found
-                </div>
-        @endif
+            @else
+            No employees found
+            @endif
+        </div>
+    </div>
     </div>
 </div>
 @endsection

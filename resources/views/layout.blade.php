@@ -9,7 +9,7 @@
         body{
             /* padding: 10px; */
             font-family: 'Gabarito', cursive;
-          font-family: 'Roboto', sans-serif;
+          /* font-family: 'Roboto', sans-serif; */
         }
 
 
@@ -25,7 +25,7 @@ border-top-left-radius: 0;
         }
 
         .card-box{
-          font-family: 'Pixelify Sans', cursive;
+          /* font-family: 'Pixelify Sans', cursive; */
         }
 
         .removeHover{

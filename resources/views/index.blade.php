@@ -148,13 +148,13 @@
       <div class="max-w-md">
         <h1 class="mb-5 text-6xl font-bold ">Alpha Team</h1>
         <p class="mb-5">Welcome to Alpha Team. We are a employee management team for managing employee services in your company.</p>
-        <a href="{{ route("employee.index") }}"><button class="btn btn-primary" >View Employees</button></a>
+        <a href="{{ route("employee.index") }}"><button class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none btn btn-primary" >View Employees</button></a>
       </div>
     </div>
   </div>
   <footer class="footer footer-center p-4 bg-base-300 text-base-content">
     <aside>
-      <p>Made by : Sufiyan & Taha</p>
+      <p>Made by : <a href="" class="link link-hover">Sufiyan</a> & <a href="https://github.com/Ta-h-a" class="link link-hover">Taha</a></p>
     </aside>
   </footer>
 @endsection
