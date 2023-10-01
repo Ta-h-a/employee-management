@@ -8,11 +8,11 @@
         </h1>
     </div>
     <div>
-        <div class="container mx-auto py-2 mb-10" style="height: 65vh">
+        <div class="container mx-auto py-2 mb-10" >
             <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10 px-4">
             @if (count($employees) > 0)
                 @foreach ($employees as $employee)
-                <div class="grow card bg-primary text-primary-content card-normal card-box" data-theme="forest">
+                <div class="grow card bg-primary text-primary-content card-normal card-box" data-theme="halloween">
                     <div class="card-body">
                             <h2 class="card-title text-3xl">
                                 {{ ucfirst($employee['f_name']) }}

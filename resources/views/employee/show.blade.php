@@ -78,13 +78,13 @@
 
             <form class="inline-block mb-3 mr-3" action="{{ route("employee.edit", $employee['id']) }}" method="GET">
               @csrf
-              <button class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none btn btn-active btn-success" type="submit">Update</button>
+              <button class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none btn btn-outline btn-success" type="submit">Update</button>
             </form>
 
 
             <form class="inline-block mr-3 mb-3" action="{{ route("employee.indexUpdateDepartment", $employee['id']) }}" method="GET">
               @csrf
-              <button class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none btn btn-active btn-warning" type="submit">Update Department</button>
+              <button class="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none btn btn-outline btn-error" type="submit">Update Department</button>
           </form>
             
             {{-- Modal --}}
@@ -94,7 +94,7 @@
     
                 <!-- Put this part before </body> tag -->
                 <input type="checkbox" id="my_modal_6" class="modal-toggle" />
-                <div class="modal" data-theme="night">
+                <div class="modal" data-theme="halloween">
                     <div class="modal-box">
                         <h3 class="font-bold text-lg">Are you sure you want to remove this employee ?</h3>
                         <p class="py-4">This action cannot be undone!</p>
