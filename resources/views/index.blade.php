@@ -142,7 +142,19 @@
 @extends('layout')
 
 @section('content')
-<div>
-    Heyy
-</div>
+<div class="hero min-h-screen" data-theme="halloween" style="background-image: url(https://images.unsplash.com/photo-1631031063239-275f5a6d4b10?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+        <h1 class="mb-5 text-6xl font-bold ">Alpha Team</h1>
+        <p class="mb-5">Welcome to Alpha Team. We are a employee management team for managing employee services in your company.</p>
+        <a href="{{ route("employee.index") }}"><button class="btn btn-primary" >View Employees</button></a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+    <aside>
+      <p>Made by : Sufiyan & Taha</p>
+    </aside>
+  </footer>
 @endsection
